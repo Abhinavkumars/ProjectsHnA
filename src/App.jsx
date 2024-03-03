@@ -2,7 +2,7 @@
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
 import './App.css'
-import Chessboard from "./components/Chessboard"
+import Chessboard from "./components/Chessboard/Chessboard"
 function App() {
   // const [count, setCount] = useState(0)
  
