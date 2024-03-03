@@ -1,11 +1,5 @@
-
-// import { useState } from 'react';
-// import PropTypes from 'prop-types';
-
 import Tile from '../Tile/Tile';
 import './Chessboard.css';
-
-
 const HorizontalAxis = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 const VerticalAxis = ['1', '2', '3', '4', '5', '6', '7', '8'];
 
@@ -62,9 +56,9 @@ function getImageForPosition(i, j) {
             return Black_Pieces['knight']; // Knight
         } else if (i === 2 || i === 5) {
             return Black_Pieces['bishop']; // Bishop
-        } else if (i === 3) {
-            return Black_Pieces['queen']; // Queen
         } else if (i === 4) {
+            return Black_Pieces['queen']; // Queen
+        } else if (i === 3) {
             return Black_Pieces['king']; // King
         }
     }
