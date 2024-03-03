@@ -1,4 +1,6 @@
 // Tile.jsx
+
+
 import "./Tile.css"
 const Tile = (props) => {
     let number = props.Number;

@@ -1,6 +1,7 @@
 
 // import { useState } from 'react';
 // import PropTypes from 'prop-types';
+
 import Tile from '../Tile/Tile';
 import './Chessboard.css';
 
