@@ -39,7 +39,7 @@ const Chessboard = () => {
                 }
             });
             board.push(
-                <Tile key={`${HorizontalAxis[i]}${VerticalAxis[j]}`} Number={number} image={image} />
+                <Tile key={`${i}${j}`} Number={number} image={image} />
             );
         }
     }
