@@ -45,68 +45,68 @@ const Chessboard = () => {
     }
     const chessboardRef = useRef(null);
     let activePiece = null;
-function grabPiece(e){
-    const element  = e.target;
-    if(element.classList.contains("chess-piece")){
-        console.log(e.target);
+    function grabPiece(e){
+        const element  = e.target;
+        if(element.classList.contains("chess-piece")){
+            // console.log(e.target);
+            const x = e.clientX - 50;
+            const y = e.clientY - 50;
+            element.style.position = "absolute";
+            element.style.left = `${x}px`;
+            element.style.top = `${y}px`;
+            activePiece = element;
+        }
+    }
+    function movePiece(e) {
+        const chessboard = chessboardRef.current;
+        if (activePiece && chessboard) {
+        const minX = chessboard.offsetLeft - 25;
+        const minY = chessboard.offsetTop - 25;
+        const maxX = chessboard.offsetLeft + chessboard.clientWidth - 80;
+        const maxY = chessboard.offsetTop + chessboard.clientHeight - 80;
         const x = e.clientX - 50;
         const y = e.clientY - 50;
-        element.style.position = "absolute";
-        element.style.left = `${x}px`;
-        element.style.top = `${y}px`;
-        activePiece = element;
-    }
-}
-function movePiece(e) {
-    const chessboard = chessboardRef.current;
-    if (activePiece && chessboard) {
-      const minX = chessboard.offsetLeft - 25;
-      const minY = chessboard.offsetTop - 25;
-      const maxX = chessboard.offsetLeft + chessboard.clientWidth - 75;
-      const maxY = chessboard.offsetTop + chessboard.clientHeight - 75;
-      const x = e.clientX - 50;
-      const y = e.clientY - 50;
-      activePiece.style.position = "absolute";
+        activePiece.style.position = "absolute";
 
-      //If x is smaller than minimum amount
-      if (x < minX) {
-        activePiece.style.left = `${minX}px`;
-      }
-      //If x is bigger than maximum amount
-      else if (x > maxX) {
-        activePiece.style.left = `${maxX}px`;
-      }
-      //If x is in the constraints
-      else {
-        activePiece.style.left = `${x}px`;
-      }
+        //If x is smaller than minimum amount
+        if (x < minX) {
+            activePiece.style.left = `${minX}px`;
+        }
+        //If x is bigger than maximum amount
+        else if (x > maxX) {
+            activePiece.style.left = `${maxX}px`;
+        }
+        //If x is in the constraints
+        else {
+            activePiece.style.left = `${x}px`;
+        }
 
-      //If y is smaller than minimum amount
-      if (y < minY) {
-        activePiece.style.top = `${minY}px`;
-      }
-      //If y is bigger than maximum amount
-      else if (y > maxY) {
-        activePiece.style.top = `${maxY}px`;
-      }
-      //If y is in the constraints
-      else {
-        activePiece.style.top = `${y}px`;
-      }
+        //If y is smaller than minimum amount
+        if (y < minY) {
+            activePiece.style.top = `${minY}px`;
+        }
+        //If y is bigger than maximum amount
+        else if (y > maxY) {
+            activePiece.style.top = `${maxY}px`;
+        }
+        //If y is in the constraints
+        else {
+            activePiece.style.top = `${y}px`;
+        }
+        }
     }
-  }
-  function dropPiece(e){
-    if(activePiece){
-        activePiece = null;
+    function dropPiece(e){
+        if(activePiece){
+            activePiece = null;
+        }
     }
-}
 
     return (
         <div 
         onMouseMove={e=>movePiece(e)}
         onMouseDown={e=>grabPiece(e)} 
         onMouseUp={e=>dropPiece(e)} 
-        className='Chessboard'
+        id='Chessboard'
         ref = {chessboardRef}>
             {board}
         </div>
